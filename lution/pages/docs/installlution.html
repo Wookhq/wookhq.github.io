@@ -1,59 +1,62 @@
 ---
-layout : Lothersdoc
-text : install lution now 111!!
+layout: Lothersdoc
+text: install lution now 111!!
 ---
-<h1>How to install Lution</h1>
 
-<h3>1. Make sure Python it installed</h2>
-<p>For some distro, python pre-installed, to check if python
-    is installed or not, run :
+<h1>How to Install Lution</h1>
+
+<p>
+  There are two ways to install Lution. The <strong>Easy Install</strong> is recommended for most users.  
+  If that doesn’t work, or if you’re built diff and prefer to do it manually, follow the manual install steps below.
 </p>
 
-<pre><code class="bash">$ python --version</code></pre>
-<sub>Just copy it by hand, i don't have time to make fancy copy button :") </sub>
+<h2>Easy Install (Recommended)</h2>
 
-<p>If the command ouput command not found, 
-    pyhon likely not installed in your system, 
-    search up how to install python in your distro.
+<p>This method uses a script to automate setup.</p>
+
+<h3>1. Prerequisites</h3>
+<p>Make sure <code>git</code> is installed. Check with:</p>
+<pre><code>git --version</code></pre>
+<p>If not installed, run:</p>
+<pre><code>sudo apt install git</code></pre>
+
+<h3>2. Clone and Run</h3>
+<p>In terminal, run:</p>
+<pre><code>git clone https://github.com/Lutionhq/Lution.git
+cd Lution/src
+./run.sh</code></pre>
+<p>
+  The script sets up everything and launches Lution.  
+  If Streamlit asks for email, just press Enter.
 </p>
 
+<hr>
 
+<h2>Manual Installation</h2>
 
+<h3>1. Prerequisites</h3>
+<p>Install <code>git</code>, <code>python3</code>, and <code>python3-venv</code>. On Debian/Ubuntu:</p>
+<pre><code>sudo apt update && sudo apt install git python3-venv</code></pre>
 
-<h3>2. Clone the Repo</h2>
-<pre><code class="bash">$ git clone https://github.com/Lutionhq/Lution.git
-$ cd Lution
-</code></pre>   
-
-<h3>3. Run Lution</h3>
-<pre><code class="bash">$ cd src
-$ ./run.sh
-</code></pre> 
-<p>If Streamlit ask for your email, just leave it blank and press enter<p>
-<!--these 2 look so fucking cursed-->
-
-
-<h2>Manual Install</h2>
-
-<h3>1. Clone the Repo</h3>
-
+<h3>2. Clone the Repo</h3>
 <pre><code>git clone https://github.com/Lutionhq/Lution.git
 cd Lution</code></pre>
 
-<h3>2. Set Up a Virtual Environment</h3>
-
+<h3>3. Create & Activate Virtual Environment</h3>
 <pre><code>python3 -m venv venv
-bash -c "source venv/bin/activate; exec bash"</code></pre>
+source venv/bin/activate</code></pre>
+<p>Prompt should now show <code>(venv)</code>.</p>
 
-<h3>3. Install Dependencies</h3>
+<h3>4. Install Dependencies</h3>
 <pre><code>cd src/Lution
 pip install -r requirements.txt</code></pre>
 
-<h4>3.1 Optional step</h4>
-<p>If you are using Debian based distro, you might need to run</p>
-
-<code>sudo apt install python3.12-venv</code>
-<h3>4 Run it</h3>
-<code>python3 -m streamlit run main.py</code>
-<p>or</p>
-<code>streamlit run main.py</code>
+<h3>5. Run Lution</h3>
+<pre><code>streamlit run main.py</code></pre>
+<p>
+  Again, skip the email prompt by pressing Enter.  
+  To run Lution later:
+</p>
+<pre><code>cd Lution/src/Lution
+source ../../venv/bin/activate
+streamlit run main.py</code></pre>
